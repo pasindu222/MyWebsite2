@@ -1,0 +1,28 @@
+name: Deploy Website via SSH
+
+on:
+  push:
+    branches:
+      - main  # Triggers the workflow on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.ERASSH }}
+
+    - name: Add server to known_hosts
+      run: ssh-keyscan 52.221.232.240 >> ~/.ssh/known_hosts
+
+    - name: Copy files via SCP
+      run: scp -r ./* root@52.221.232.240:/www/wwwroot/eranga.run.place
+
+    - name: Verify deployment
+      run: ssh root@52.221.232.240 'ls -l /www/wwwroot/eranga.run.place'
