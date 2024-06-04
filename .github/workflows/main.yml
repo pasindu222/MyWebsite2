@@ -19,10 +19,10 @@ jobs:
         ssh-private-key: ${{ secrets.ERASSH }}
 
     - name: Add server to known_hosts
-      run: ssh-keyscan 52.221.232.240 >> ~/.ssh/known_hosts
+      run: ssh-keyscan 18.140.64.250 >> ~/.ssh/known_hosts
 
     - name: Copy files via SCP
-      run: scp -r ./* root@52.221.232.240:/www/wwwroot/eranga.run.place
+      run: scp -r ./* root@18.140.64.250:/www/wwwroot/eranga.run.place
 
     - name: Verify deployment
-      run: ssh root@52.221.232.240 'ls -l /www/wwwroot/eranga.run.place'
+      run: ssh root@18.140.64.250 'ls -l /www/wwwroot/eranga.run.place'
