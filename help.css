@@ -1,0 +1,42 @@
+.body{
+    margin: 0px;
+}
+
+.help{
+    width: 100%;
+    height: 100vh;
+    background-image: url("resources/background/wallpaper.jpg");
+    background-size: cover;
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: rgb(255, 81, 0);
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn{
+    width: 500px;
+    height: 60px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Arial";
+    border: none;
+    border-radius: 30px;
+    border-style: solid;
+    cursor: pointer;
+    margin-top: 300px;
+}
+.btn:hover{
+    background-color: rgb(255, 81, 0);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: 0.5;
+}
